@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>srMustache</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow" />
+    
+    <style>
+        @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+a, a:hover, a:active, a:visited{
+    text-decoration: none;
+    color: #000;
+}
+li, li:hover, li:active, li:visited{
+    list-style: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 320px){
+    .nav-pc{
+        display: none;
+    }
+    .container{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    header{
+        width: 100%;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        background: #fff;
+    }
+    main{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: #d6af36;
+        /*background-repeat: no-repeat;
+        background-position: center center;
+        background-size: auto;
+        background-image: url("./backgroundme.jpg"); */
+    }
+    footer{
+        width: 100%;
+        min-width: 50px;
+        text-align: center;
+        color: #d6af36;
+        background: #000;
+    }
+    .nav-mobile{
+        background: #e6b123;
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+    }
+    .nav-mobile span{
+        margin-right: 205px;
+    }
+    .nav-mobile span nav{
+        width: 250px;
+        min-height: 50px;
+        display: none;
+        text-transform: uppercase;
+        background: #e6b123;
+        position: absolute;
+        right: 0px;
+        z-index: 9999;
+    }
+    .nav-mobile nav ul li{
+        width: 200px;
+        height: 25px;
+        font-size: 10px;
+        text-align: right;
+        margin: 10px 0 10px 0;
+    }
+    h2{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .middle-content{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 50px 0 50px 0;
+    }
+    .writte{
+        width: 250px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    .writte span{
+        width: auto;
+        text-align: center;
+        font-size: 17px;
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bolder;
+    }
+    .writte span:after{
+        width: auto;
+        height: 15px;
+        content: "";
+        display: block;
+        margin-right: -10px;
+        margin-left: -10px;
+        margin-top: -11px;
+        background: #000;
+    }
+    .circle, .circle-last{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 10px 0 10px 0;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        animation: dropme 1s;
+        font-weight: 700;
+        font-family: 'Roboto', sans-serif;
+        box-shadow: 0 0 15px #000;
+        
+    }
+    @keyframes dropme{
+        0%{
+            top: -10px;
+            opacity: 5;
+        }
+        100%{
+            top: 0;
+            opacity: 1;
+        }
+    }
+    .circle:after{
+        width: 25px;
+        height: 30px;
+        background: #000;
+        opacity: .6;
+        content: "";
+        display: block;
+        margin-top: 225px;
+        position: absolute;
+    }
+    
+    
+}
+@media (min-width: 800px){
+    header img{
+        margin-left: 28%;
+    }
+    .nav-pc{
+        width: 800px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        background: #e6b123;
+    }
+    .nav-pc nav ul{
+        width: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+    .nav-pc nav ul li{
+        text-align: center;
+        width: 125px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 8px;
+        font-family: 'Roboto', sans-serif;
+        transition: color .3s;
+        
+    }
+    .writte{
+        width: 100%;
+    }
+    .writte span{
+        margin: 10px 0;
+        font-size: 25px;
+    }
+    .middle-content{
+        flex-direction: row;
+    }
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 16px;
+    }
+    .middle-content{
+        justify-content: center;
+    }
+    .circle, .circle-last{
+        width: 170px;
+        height: 170px;
+        margin: 0 10px 0 10px;
+        transition: color .3s;
+    }
+    .circle p, .circle-last p{
+        
+        font-size: 20px;
+    }
+    .circle:after{
+        height: 25px;
+        margin-left: 190px;
+        margin-top: 0;
+        margin-right: 5px;
+    }
+    .circle:hover, .circle-last:hover, li:hover{
+        cursor: pointer;
+        color: #fff;
+    }
+    .nav-mobile{
+        display: none;
+    }
+    .nav-pc{
+        display: flex;
+    }
+}
+
+
+.srmustache{
+    color: #000;
+    
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+}
+p{
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #d6af36;
+    font-weight: bolder;
+}
+h1,h2{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+h1{
+    font-weight: 900;
+}
+h6{
+    text-transform: uppercase;
+    margin: 10px 0 10px 0;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.singin{
+    min-width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d6af36;
+    background: #000;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./logome.png">
+            <div class="nav-mobile">
+                <span onclick="menumobile()">menu<nav id="mobile-menu">
+                    <ul>
+                        <a href="#"><li>home</li></a>
+                        <a href="#"><li>quem somos</li></a>
+                        <a href="#"><li>contato</li></a>
+                        <a href="#"><li class="singin">criar conta / entrar</li></a>
+                    </ul>
+                </nav></span>
+            </div>
+            <div class="nav-pc">
+                <nav>
+                    <ul>
+                        <a href="#"><li>home</li></a>
+                        <a href="#"><li>quem somos</li></a>
+                        <a href="#"><li>contato</li></a>
+                        <a href="#"><li class="singin">criar conta / entrar</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="writte">
+                <h2>Se você acredita que a melhor forma de crescer é junto dos seus amigos.</h2>
+                <h1>Bem vindo ao Sr.Mustache!</h1>
+
+                <span>saiba como tudo funciona</span>
+            </div>
+            <div class="middle-content">
+                <div class="circle">
+                    <p>tenha um<br>espaço</p>
+                </div>
+                <div class="circle">
+                    <p>seja um<br>membro</p>
+                </div>
+                <div class="circle">
+                    <p>venda seu<br>produto</p>
+                </div>
+                <div class="circle">
+                    <p>faça<br>negócios</p>
+                </div>
+                <div class="circle-last">
+                    <p>ganhe<br>parceiros</p>
+                </div>
+            </div>
+                <p class="srmustache">clique nas bolinhas e entenda cada pilar do <strong>Sr . mustache</strong></p>
+        </main>
+        <footer>
+            <h6>todos os direitos reservados a sr. mustache <br>desenvolvido por dellosi</h6>
+        </footer>
+    </div>
+
+
+
+    <script>
+        function menumobile() {
+          var x = document.getElementById("mobile-menu");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+</body>
+</html>
